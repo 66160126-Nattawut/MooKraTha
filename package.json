@@ -1,0 +1,16 @@
+{
+  "name": "scss-starter",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "create": "sass scss:css",
+    "watch": "sass --watch scss:css"
+  },
+  "author": "Nattawut Chuenklin",
+  "license": "MIT",
+  "description": "",
+  "dependencies": {
+    "bootstrap": "^5.3.3",
+    "sass": "^1.86.0"
+  }
+}

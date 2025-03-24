@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="th">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>แนะนำหมูกระทะในบางแสน</title>
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+        <style>
+            .search-container {
+                position: relative;
+                display: inline-block;
+            }
+            .search-input {
+                width: 0;
+                padding: 5px;
+                border: none;
+                border-radius: 20px;
+                outline: none;
+                transition: width 0.3s ease-in-out;
+                position: absolute;
+                right: 100%;
+                top: 50%;
+                transform: translateY(-50%);
+                opacity: 0;
+            }
+            .search-input.active {
+                width: 200px;
+                opacity: 1;
+            }
+        </style>
+    </head>
+
+    <body>
+        <!-- Navigation Bar -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="index-log.html">MooKraTha - หมูกระทะ</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="ranking-log.html">ตารางคะแนน</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="findin-log.html">หาเพื่อน</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="setting-log.html">การตั้งค่า</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-primary" href="index.html">Logout</a>
+                        </li>
+                    </ul>
+                    <div class="d-flex">
+                        <div class="search-container">
+                            <input type="text" class="search-input" placeholder="Search...">
+                            <button class="btn btn-link" onclick="toggleSearch()"><i class="fas fa-search text-white"></i></button>
+                        </div>
+                        <a href="user-log.html" class="btn btn-link"><i class="fas fa-user text-white"></i></a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="container mt-4">
+            <div class="row">
+                <!-- Left Menu -->
+                <div class="col-md-3">
+                    <h3><b>บัญชีของฉัน</b></h3>
+                    <hr class="border border-dark border-1 opacity-75" style="width: 200px; margin-left: 0;">
+                    
+                    <div class="d-flex flex-column">
+                        <a href="#" class="text-dark text-decoration-none mb-3"><b>ข้อมูลของฉัน</b></a>
+                        <a href="#" class="text-dark text-decoration-none mb-3"><b>ความปลอดภัย</b></a>
+                        <a href="#" class="text-dark text-decoration-none mb-3"><b>การแจ้งเตือน</b></a>
+                        <a href="#" class="text-dark text-decoration-none mb-3"><b>ความเป็นส่วนตัว</b></a>
+                    </div>
+                </div>
+
+                <!-- Right Content -->
+                <div class="col-md-9">
+                    <h3><b>ข้อมูลของฉัน</b></h3>
+                    <div class="mt-4 ">
+                        <p><strong>ชื่อ:</strong> Nattawut</p>
+                        <p><strong>อีเมล:</strong> 6*******@go.buu.ac.th</p>
+                        <p><strong>เบอร์:</strong> +66 ** *** 8099</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Bootstrap JS and dependencies -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script>
+            function toggleSearch() {
+                const searchInput = document.querySelector('.search-input');
+                searchInput.classList.toggle('active');
+                if (searchInput.classList.contains('active')) {
+                    searchInput.focus();
+                }
+            }
+        </script>
+    </body>
+</html>
