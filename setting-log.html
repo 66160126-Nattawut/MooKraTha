@@ -65,31 +65,53 @@
             </div>
         </nav>
 
-        <!-- Main Content -->
-        <div class="container mt-4">
+        <div class="container-fluid mt-4">
             <div class="row">
-                <!-- Left Side -->
-                <div class="col-md-3">
+                <div class="col-md-3  text-black p-4">
                     <h2>การตั้งค่า</h2>
-                    <hr class="border border-dark border-1 opacity-75" style="width: 600px; margin-left: 0; max-width: 100%;">
+                    <hr class="border border-dark border-1 opacity-75" style="width: 300px; margin-left: 0; max-width: 100%;">
+                    
+                    <div class="mt-4 text-black">
+                        <button class="btn btn-outline w-100 text-start mb-2">ธีม</button>
+                    </div>
                 </div>
-                <!-- Right Side Content -->
-                <div class="col-md-8">
-                    <!-- Add your settings content here -->
+                
+                <div class="col-md-9  text-black p-4">
+                    <div class="p-4 ">
+                        <h5 class="mb-4">ตั้งค่าธีม</h5>
+                        
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <div>
+                                <h6 class="mb-0">โหมดกลางคืน</h6>
+                                <small class="text-secondary">เปลี่ยนธีมเป็นสีเข้มเพื่อลดแสงจอ</small>
+                            </div>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="darkModeToggle" checked>
+                            </div>
+                        </div>
+                        
+                        <hr class="border-dark border-1 opacity-75">
+                        
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h6 class="mb-0">ขนาดตัวอักษร</h6>
+                                <small class="text-secondary">ปรับขนาดตัวอักษรให้เหมาะกับการอ่าน</small>
+                            </div>
+                            <div>
+                                <select class="form-select text-black border-dark">
+                                    <option>เล็ก</option>
+                                    <option selected>ปกติ</option>
+                                    <option>ใหญ่</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- Bootstrap JS and dependencies -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-        <script>
-            function toggleSearch() {
-                const searchInput = document.querySelector('.search-input');
-                searchInput.classList.toggle('active');
-                if (searchInput.classList.contains('active')) {
-                    searchInput.focus();
-                }
-            }
-        </script>
+   
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="theme.js"></script>
     </body>
 </html>
