@@ -82,7 +82,42 @@
                         <i class="fas fa-user-circle fa-3x me-3"></i>
                         <div>
                             <h6 class="mb-1">นัท - 19</h6>
-                            <button class="btn btn-secondary btn-sm">Follow</button>
+                            <button class="btn btn-info btn-sm btn-follow" onclick="checkLoginBeforeFollow()">Follow</button>
+                            <div class="modal fade" id="confirmFollowModal" tabindex="-1" aria-labelledby="confirmFollowModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="confirmFollowModalLabel">ยืนยันการติดตาม</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            ต้องการที่จะติดตามใช่หรือไม่
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" onclick="followUser()">ใช่</button>
+                                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">ไม่</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            
+                            <div class="modal fade" id="followSuccessModal" tabindex="-1" aria-labelledby="followSuccessModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="followSuccessModalLabel">ติดตามสำเร็จ</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            คุณได้ติดตามเรียบร้อย
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-success" data-bs-dismiss="modal">ตกลง</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
