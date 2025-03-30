@@ -24,7 +24,15 @@ document.addEventListener('DOMContentLoaded', function() {
     function enableDarkMode() {
         document.body.classList.add('bg-dark', 'text-white');
 
-        // Special handling for social login buttons
+        document.querySelectorAll('.menu-item').forEach(item => {
+            item.classList.remove('text-dark');
+            item.classList.add('text-white');
+        });
+
+        document.querySelectorAll('.modal-content').forEach(modal => {
+            modal.classList.add('bg-dark', 'text-white', 'border-light');
+        });
+
         document.querySelectorAll('a[href*="Google"], a[href*="Facebook"]').forEach(btn => {
             btn.classList.add('text-white');
         });
@@ -39,7 +47,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
         
-
         document.querySelectorAll('h2, h5, h6, .btn-outline, p, small, .mb-0, div[class*="text-"], .col-md-3, .col-md-9').forEach(element => {
             if (!element.classList.contains('text-secondary') && 
                 !element.classList.contains('text-warning') && 
@@ -74,14 +81,20 @@ document.addEventListener('DOMContentLoaded', function() {
     
     function disableDarkMode() {
         document.body.classList.remove('bg-dark', 'text-white');
-        
-        // Keep navbar dark in both modes - ensure this runs first
         const navbar = document.querySelector('.navbar');
         if (navbar) {
             navbar.classList.add('navbar-dark', 'bg-dark');
         }
+
+        document.querySelectorAll('.modal-content').forEach(modal => {
+            modal.classList.remove('bg-dark', 'text-white', 'border-light');
+        });
         
-        // Special handling for social login buttons
+        document.querySelectorAll('.menu-item').forEach(item => {
+            item.classList.remove('text-white');
+            item.classList.add('text-dark');
+        });
+        
         document.querySelectorAll('a[href*="Google"], a[href*="Facebook"]').forEach(btn => {
             btn.classList.remove('text-white');
         });
@@ -98,9 +111,8 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
         
-        // Rest of the function remains the same
+        
         document.querySelectorAll('h2, h5, h6, .btn-outline, p, small, .mb-0, div[class*="text-"]').forEach(element => {
-            // Don't change text color for navbar elements
             if (!navbar || !navbar.contains(element)) {
                 element.classList.remove('text-white');
                 if (!element.classList.contains('text-secondary') && 
@@ -112,7 +124,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
         
-        // Only change bg-dark to bg-light for elements that are NOT the navbar and NOT inside the navbar
+
         document.querySelectorAll('.bg-dark').forEach(element => {
             if (element !== navbar && (!navbar || !navbar.contains(element))) {
                 element.classList.remove('bg-dark');
@@ -120,7 +132,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
         
-        // Rest of the function remains the same
         
         document.querySelectorAll('hr').forEach(hr => {
             hr.classList.add('border-dark');
@@ -181,4 +192,39 @@ function followUser() {
     document.querySelector('.btn-follow').textContent = 'Following';
     document.querySelector('.btn-follow').classList.replace('btn-secondary', 'btn-success');
     document.querySelector('.btn-follow').disabled = true;
+}
+document.getElementById('accountHeader').addEventListener('click', function() {
+    const menu = document.getElementById('accountMenu');
+    menu.classList.toggle('d-none');
+});
+
+document.querySelectorAll('.menu-item').forEach(item => {
+    item.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        document.querySelectorAll('.menu-item').forEach(menuItem => {
+            menuItem.classList.remove('active');
+        });
+        
+        this.classList.add('active');
+        
+        document.querySelectorAll('.content-section').forEach(section => {
+            section.classList.add('d-none');
+            section.classList.remove('active');
+        });
+        
+      
+        const contentId = this.getAttribute('data-content') + '-content';
+        const contentSection = document.getElementById(contentId);
+        contentSection.classList.remove('d-none');
+        contentSection.classList.add('active');
+    });
+});
+
+function toggleSearch() {
+    const searchInput = document.querySelector('.search-input');
+    searchInput.classList.toggle('active');
+    if (searchInput.classList.contains('active')) {
+        searchInput.focus();
+    }
 }
